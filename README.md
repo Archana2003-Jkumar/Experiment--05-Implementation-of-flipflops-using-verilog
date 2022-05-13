@@ -1,7 +1,10 @@
 # Experiment--05-Implementation-of-flipflops-using-verilog
-### AIM: To implement all the flipflops using verilog and validating their functionality using their functional tables
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement all the flipflops using verilog and validating their functionality using their functional tables
+### HARDWARE REQUIRED:  – 
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:  
+ Quartus prime
 ### THEORY 
 SR Flip-Flop
 SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
@@ -107,34 +110,76 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:J.Archana priya  
+RegisterNumber:  212221230007
+```
+## SR flipflop:
+```
+module exp0501(s,r,clk,q,qb);
+input s,r,clk;
+output q,qb;
+wire x,y;
+nand (x,s,clk);
+nand (y,r,clk);
+nand (q,x,qb);
+nand (qb,y,q);
+endmodule 
+```
+## JK flipflop:
+```
+module exp0502(j,k,clk,q,qb);
+input j,k,clk;
+output q,qb;
+wire p,s;
+nand (p,j,clk,qb);
+nand (s,k,clk,q);
+nand (q,p,qb);
+nand (qb,s,q);
+endmodule 
 
-
-
-
-
-
+```
+## D-flipflop:
+```
+module exp0503(d,clk,q,qb);
+input d ,clk;
+output q,qb;
+assign db = ~d;
+wire x,y;
+nand (x,d,clk);
+nand (y,db,clk);
+nand (q,x,qb);
+nand (qb,y,q);
+endmodule
+```
+## T-flipflop:
+```
+module exp0504(t,clk,q,qb);
+input t,clk;
+output q,qb;
+wire s,r;
+nand (s,t,clk,qb);
+nand (r,t,clk,q);
+nand (q,s,qb);
+nand (qb,r,q);
+endmodule
+```
 ### RTL LOGIC FOR FLIPFLOPS 
-
-
-
-
-
-
-
+![digi52](./digi52.png)
+![digi54](./digi54.png)
+![digi56](./digi56.png)
+![digi58](./digi58.png)
 
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+![digi51](./digi51.png)
+![digi53](./digi53.png)
+![digi55](./digi55.png)
+![digi57](./digi57.png)
+
+### RESULT:
+ All the flipflops using verilog and validating their functionality using their functional tables
+ has been implemented successfully.
 
 
-
-
-
-
-
-
-### RESULTS 
